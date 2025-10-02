@@ -62,7 +62,8 @@ Each model outputs a confidence score, and the final diagnosis is determined by 
 
 ```text
 data_files/           # Training/testing PCR curve data (CSV format)
-jupyter_notebooks/├── Data Transformation.ipynb      # Production data preprocessing pipeline
+jupyter_notebooks/
+├── Data Transformation.ipynb      # Production data preprocessing pipeline
 ├── Ensemble AI Creation.ipynb     # Model training and ensemble assembly
 └── Original Notebook.ipynb        # Initial experimentation and prototyping
 models/
