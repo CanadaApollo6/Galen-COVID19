@@ -70,6 +70,17 @@ Each of the 5 gene-specific models uses a compact CNN-LSTM architecture optimize
 - H5 file size: ~160KB per model
 - TFJS deployment size: ~630KB per model (includes JSON metadata)
 
+### Deployment Optimization
+
+The models were intentionally designed for efficiency:
+
+- **Compact Architecture**: Each model is approximately 160KB (H5 format)
+- **Fast Loading**: Small model size enables sub-second loading in browser environments
+- **TensorFlow.js Conversion**: Models converted to TFJS format for client-side inference
+- **No Server Required**: Complete inference pipeline runs locally in the browser
+
+This architectural decision prioritized deployment practicality over marginal accuracy gains from larger models. The compact size was critical for the production environment where lab technicians needed instant results without server dependencies or network latency.
+
 ### Technology Stack
 
 - **Framework**: TensorFlow / Keras for training
