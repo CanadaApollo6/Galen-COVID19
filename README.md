@@ -54,9 +54,12 @@ Each model outputs a confidence score, and the final diagnosis is determined by 
 
 - **Framework**: TensorFlow / Keras for training
 - **Deployment**: TensorFlow.js for browser-based inference
-- **Training Data**: ~50,000 labeled PCR curves with expert validation
-- **Architecture**: CNN for spatial feature extraction + LSTM for temporal patterns
-- **Optimization**: Model quantization for fast browser inference
+- **Training Data**: 175,000+ hand-labeled real-world PCR curves
+  - 80/20 train-test split with randomization
+  - Stratified sampling to maintain class balance
+  - Data collected across diverse sample conditions and collection methods
+- **Architecture**: CNN for spatial feature extraction + LSTM for temporal pattern recognition
+- **Optimization**: Model quantization and pruning for browser deployment
 
 ## Repository Contents
 
@@ -89,6 +92,24 @@ Built as sole ML engineer over 3-month period with direct feedback from:
 - Gravity Diagnostics leadership
 
 The tight feedback loop with actual users was critical - we iterated on edge cases they encountered in real-world samples that wouldn't appear in clean training data.
+
+## Data Engineering
+
+One of the project's most significant undertakings was creating a high-quality labeled dataset at scale:
+
+**Dataset Characteristics:**
+- **175,000+ labeled PCR curves** from real patient samples
+- Hand-labeled by experienced lab technicians
+- Covered diverse conditions: varying viral loads, sample quality, collection methods
+- Balanced across positive/negative cases and all five genetic markers
+
+**Data Pipeline:**
+- 80/20 train-test split with stratified sampling
+- Randomization to prevent learning from dataset ordering artifacts
+- Validation against independent lab technician diagnoses
+- Cross-validation across multiple lab sites and time periods
+
+This dataset scale is what enabled the production reliability - the models were trained on the full complexity of real-world samples, not idealized laboratory conditions.
 
 ## Key Technical Challenges Solved
 
