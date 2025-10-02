@@ -38,9 +38,27 @@ The system uses an ensemble of 5 specialized neural networks, each trained to de
 - Multi-target detection increases diagnostic confidence
 - Redundancy across genetic markers reduces false negatives
 - Follows standard clinical PCR protocols (multi-gene confirmation)
-- Ensemble voting provides robust classification even with degraded samples
 
-Each model outputs a confidence score, and the final diagnosis is determined by aggregating predictions across all five genetic targets - mirroring how lab technicians interpret multi-gene PCR results.
+**Ensemble Decision Logic:**
+
+The system implements clinically-validated gene combination rules rather than simple majority voting:
+
+1. **Valid Positive Detection**:
+   - MS2 control gene must be present (confirms sample validity)
+   - At least one viral gene (N, S, or ORF1ab) detected
+   - Result: COVID-19 DETECTED
+
+2. **Invalid Sample**:
+   - MS2 control absent (sample degraded or processing error)
+   - Any viral genes detected
+   - Result: INVALID - requires re-test
+
+3. **Valid Negative**:
+   - MS2 present (sample valid)
+   - No viral genes detected
+   - Result: NOT DETECTED
+
+This rule-based approach mirrors clinical PCR protocols where the MS2 control gene serves as a quality check, and multi-gene viral detection increases diagnostic confidence. The system doesn't just aggregate predictions—it applies domain knowledge about PCR diagnostics to prevent false results from degraded samples.
 
 ### Model Pipeline
 
