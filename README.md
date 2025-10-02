@@ -167,21 +167,9 @@ This dataset scale is what enabled the production reliability - the models were 
 3. **Zero tolerance for false negatives**: Medical context required extreme reliability
 4. **Integration with existing workflow**: Had to fit seamlessly into lab's Excel-based process
 
-## Performance Metrics
-
-| Metric | Value |
-|--------|-------|
-| Accuracy (Production) | 100% |
-| Sensitivity | 100% |
-| Specificity | 100% |
-| Inference Time | <1 second |
-| Daily Throughput | 30,000+ tests |
-| False Positives | 0 (validated) |
-| False Negatives | 0 (validated) |
-
 ## Related Projects
 
-- [Galen-Front-End](link) - React/TypeScript UI for lab technicians
+- [Galen-Front-End](https://github.com/CanadaApollo6/Galen-Front-End) - React/TypeScript UI for lab technicians
 
 ## License
 
