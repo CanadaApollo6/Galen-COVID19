@@ -25,13 +25,22 @@ This wasn't test set accuracy - this was real production deployment with lives d
 
 ### Ensemble Approach
 
-The system uses an ensemble of 5 specialized CNN-LSTM neural networks:
+The system uses an ensemble of 5 specialized neural networks, each trained to detect specific COVID-19 genetic markers:
+
+1. **MS2 Control Gene** - Internal control validation
+2. **N Gene** - Nucleocapsid protein detection
+3. **ORF1ab** - Open reading frame detection
+4. **RP (RNase P)** - Human gene control
+5. **S Gene** - Spike protein detection
 
 **Why ensemble?**
-- Different networks specialized in different PCR curve patterns
-- Handled variability in sample quality and collection methods  
-- Ensemble voting eliminated edge cases that individual models might miss
-- Provided confidence scoring for uncertain predictions
+- Each model specializes in detecting a specific viral or control gene
+- Multi-target detection increases diagnostic confidence
+- Redundancy across genetic markers reduces false negatives
+- Follows standard clinical PCR protocols (multi-gene confirmation)
+- Ensemble voting provides robust classification even with degraded samples
+
+Each model outputs a confidence score, and the final diagnosis is determined by aggregating predictions across all five genetic targets - mirroring how lab technicians interpret multi-gene PCR results.
 
 ### Model Pipeline
 
