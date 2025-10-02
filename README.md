@@ -50,13 +50,14 @@ The system uses an ensemble of 5 specialized CNN-LSTM neural networks:
 - **Optimization**: Model quantization for fast browser inference
 
 ## Repository Contents
-'''
+
+```text
 ├── training/           # Model training notebooks
 ├── models/            # Trained model weights (TF.js format)
 ├── data/              # Sample training/testing data (anonymized)
 ├── preprocessing/     # Data cleaning and augmentation scripts
 └── evaluation/        # Performance analysis and metrics
-'''
+```
 
 ## Development Context
 
