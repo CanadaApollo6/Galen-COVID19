@@ -71,6 +71,16 @@ models/
 └── tfjs_models/                   # TensorFlow.js converted models for browser deployment
 ```
 
+## Development Notebooks
+
+The repository includes Jupyter notebooks documenting the full ML pipeline:
+
+- **Data Transformation**: Preprocessing pipeline for PCR curve normalization, feature extraction, and augmentation
+- **Ensemble AI Creation**: Training process for the 5 gene-specific models and ensemble architecture
+- **Original Notebook**: Initial experimentation showing the iterative development process (retained for transparency)
+
+These notebooks demonstrate the complete workflow from raw PCR data to deployable TensorFlow.js models.
+
 ## Development Context
 
 Built as sole ML engineer over 3-month period with direct feedback from:
