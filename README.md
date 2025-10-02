@@ -61,11 +61,13 @@ Each model outputs a confidence score, and the final diagnosis is determined by 
 ## Repository Contents
 
 ```text
-├── training/           # Model training notebooks
-├── models/            # Trained model weights (TF.js format)
-├── data/              # Sample training/testing data (anonymized)
-├── preprocessing/     # Data cleaning and augmentation scripts
-└── evaluation/        # Performance analysis and metrics
+data_files/           # Training/testing PCR curve data (CSV format)
+jupyter_notebooks/├── Data Transformation.ipynb      # Production data preprocessing pipeline
+├── Ensemble AI Creation.ipynb     # Model training and ensemble assembly
+└── Original Notebook.ipynb        # Initial experimentation and prototyping
+models/
+├── h5_models/                     # Keras model files (5 gene-specific models)
+└── tfjs_models/                   # TensorFlow.js converted models for browser deployment
 ```
 
 ## Development Context
