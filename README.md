@@ -4,8 +4,8 @@ Production machine learning system for automated COVID-19 diagnosis from PCR cur
 
 ## Production Impact
 
-- **100% diagnostic accuracy** across 1,000,000+ production cases
-- **Zero reported errors** when validated against human lab technicians
+- **Zero reported errors** across 1M+ production diagnoses when validated against human lab technicians
+- Trained on 175,000+ hand-labeled real-world samples for robust generalization
 - Baseline human lab tech accuracy: ~96%
 - Processing time: **15 minutes → <1 second**
 - Throughput: **30,000+ tests processed daily**
