@@ -50,6 +50,26 @@ Each model outputs a confidence score, and the final diagnosis is determined by 
 4. **Validation**: Confidence thresholding and quality checks
 5. **Output**: Binary classification (positive/negative) with confidence scores
 
+### Model Architecture (Per Gene)
+
+Each of the 5 gene-specific models uses a compact CNN-LSTM architecture optimized for PCR curve analysis:
+
+**Architecture Layers:**
+- **Input**: 40 PCR cycle points (normalized intensity values)
+- **Conv1D Layers**: 
+  - First layer: 32 filters, kernel size 3 (pattern detection)
+  - Second layer: 64 filters, kernel size 3 (feature extraction)
+- **MaxPooling**: Dimensionality reduction
+- **LSTM Layer**: 50 units for temporal sequence modeling
+- **Dropout**: Regularization to prevent overfitting
+- **Dense Layers**: Fully connected layers for final classification
+- **Output**: Binary classification (positive/negative) with sigmoid activation
+
+**Model Specifications:**
+- Parameters: ~50,000-60,000 per model
+- H5 file size: ~160KB per model
+- TFJS deployment size: ~630KB per model (includes JSON metadata)
+
 ### Technology Stack
 
 - **Framework**: TensorFlow / Keras for training
